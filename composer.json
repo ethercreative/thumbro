@@ -1,0 +1,31 @@
+{
+  "name": "ether/thumbro",
+  "description": "Craft CMS image transformations powered by Thumbor",
+  "version": "1.0.0",
+  "type": "craft-plugin",
+  "license": "proprietary",
+  "minimum-stability": "dev",
+  "require": {
+    "craftcms/cms": "^3.2.1"
+  },
+  "autoload": {
+    "psr-4": {
+      "ether\\thumbro\\": "src/"
+    }
+  },
+  "support": {
+    "email": "help@ethercreative.co.uk",
+    "docs": "https://docs.ethercreative.co.uk/thumbro",
+    "source": "https://github.com/ethercreative/thumbro",
+    "issues": "https://github.com/ethercreative/thumbro/issues"
+  },
+  "extra": {
+    "handle": "thumbro",
+    "name": "Thumbro",
+    "developer": "Ether Creative",
+    "developerUrl": "https://ethercreative.co.uk",
+
+    "class": "ether\\thumbro\\Thumbro"
+  }
+}
+
