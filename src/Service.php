@@ -152,8 +152,14 @@ class Service extends Component
 				list($x, $y) = explode(' ', $position);
 			}
 
-			$x = (int) ($image->getWidth() * (floatval($x) / 100));
-			$y = (int) ($image->getHeight() * (floatval($y) / 100));
+			$x = floatval($x);
+			$y = floatval($y);
+
+			if ($x > 1) $x /= 100;
+			if ($y > 1) $y /= 100;
+
+			$x = (int) ($image->getWidth() * $x);
+			$y = (int) ($image->getHeight() * $y);
 
 			if ($x < 1) $x++;
 			if ($y < 1) $y++;
