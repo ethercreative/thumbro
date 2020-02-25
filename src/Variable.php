@@ -91,10 +91,10 @@ class Variable
 		$h = $transform['height'];
 
 		$transforms = [
-			['width' => 20, 'height' => round($h * 20 / $w)],
+			array_merge($transform, [ 'width' => 20, 'height' => round($h * 20 / $w) ]), // Placeholder
 			$transform, // Base size
-			[ 'width' => round($w * 1.5), 'height' => round($h * 1.5) ], // 1.5x
-			[ 'width' => round($w * 2),   'height' => round($h * 2)   ], // 2x
+			array_merge($transform, [ 'width' => round($w * 1.5), 'height' => round($h * 1.5) ]), // 1.5x
+			array_merge($transform, [ 'width' => round($w * 2), 'height' => round($h * 2) ]), // 2x
 		];
 
 		$imgs = $this->img($asset, $transforms, $config);
