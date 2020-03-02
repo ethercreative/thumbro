@@ -40,16 +40,16 @@ class Service extends Component
 	}
 
 	/**
-	 * @param Asset $image
+	 * @param Asset|RemoteAsset $image
 	 * @param array $transforms
 	 *
 	 * @return array|null
 	 */
 	public function transform ($image, $transforms)
 	{
-		if ($image->getExtension() === 'svg')
+		if ($image->getExtension() === 'svg' || $image->getExtension() === 'UNKNOWN')
 		{
-			Craft::error('Thumbor does not support SVG images.');
+			Craft::error('Thumbor does not support SVG or unknown image types.');
 			return null;
 		}
 
@@ -273,13 +273,18 @@ class Service extends Component
 		return $args;
 	}
 
-	private function _getImageUrl (Asset $asset)
+	/**
+	 * @param Asset|RemoteAsset $asset
+	 *
+	 * @return string
+	 */
+	private function _getImageUrl ($asset)
 	{
 		$settings = Thumbro::getInstance()->getSettings();
 		$url = $asset->getUrl();
 
 		if (is_callable($settings->imageUrlModifier))
-			$url = call_user_func($settings->imageUrlModifier, $url);
+			$url = call_user_func($settings->imageUrlModifier, $url, $asset instanceof RemoteAsset);
 
 		return rawurlencode(
 			preg_replace(

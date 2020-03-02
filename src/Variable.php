@@ -26,14 +26,17 @@ class Variable
 {
 
 	/**
-	 * @param Asset $asset
+	 * @param Asset|string $asset
 	 * @param array $transforms
 	 * @param array $config
 	 *
 	 * @return ThumbroImage[]
 	 */
-	public function img (Asset $asset, array $transforms, array $config = [])
+	public function img ($asset, array $transforms, array $config = [])
 	{
+		if (is_string($asset))
+			$asset = new RemoteAsset($asset);
+
 		$thumbro = Thumbro::getInstance();
 		$settings = $thumbro->getSettings();
 		$single = false;
@@ -58,15 +61,18 @@ class Variable
 	}
 
 	/**
-	 * @param Asset $asset
+	 * @param Asset|string $asset
 	 * @param array $transform
 	 * @param array $config
 	 *
 	 * @return Markup
 	 * @throws Exception
 	 */
-	public function picture (Asset $asset, array $transform, array $config = [])
+	public function picture ($asset, array $transform, array $config = [])
 	{
+		if (is_string($asset))
+			$asset = new RemoteAsset($asset);
+
 		if (!ArrayHelper::isAssociative($transform, true))
 			throw new Exception('The `picture` method only supports a single transform!');
 

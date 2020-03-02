@@ -42,12 +42,15 @@ Thumbor. This is especially useful when working in Docker:
 
 ```php
 return [
-    'imageUrlModifier' => function ($url) {
+    'imageUrlModifier' => function ($url, $isRemoteAsset) {
         // Replace the site's URL with the internal docker container name (web)
         return str_replace(getenv('DEFAULT_SITE_URL'), 'web', $url);
     },
 ];
 ```
+
+`$isRemoteAsset` will be true if a URL string was passed to one of the transform
+methods below.
 
 ### thumborUrlModifier [callable|null]
 
@@ -59,10 +62,11 @@ access the file contents in the `picture` method. Works the same as
 
 ## Usage
 
-### `img(Asset $asset, array $transforms, array $config = [])`
+### `img(Asset|string $asset, array $transforms, array $config = [])`
 
 Transform a single image to one or more sizes. The config array will be merged 
-into every transform.
+into every transform. You can pass either an asset or a string URL as the first 
+argument.
 
 ```twig
 {% set img = craft.assets.one() %}
@@ -82,12 +86,14 @@ into every transform.
 ]) %}
 ```
 
-### `picture(Asset $asset, array $transform, array $config = [])`
+### `picture(Asset|string $asset, array $transform, array $config = [])`
 
 Will output the image in a `picture` tag for dynamic lazy loading with a low 
 quality placeholder. The function signature matches that of the `img` method, 
 with the exception that `$transform` only accepts a single transform object, not 
 an array of multiple objects.
+
+You can pass either an asset or a string URL as the first argument.
 
 This function will inject the necessary JavaScript to dynamically load the 
 image. You can disable this by passing the `noJs` option to the `$config` and 
