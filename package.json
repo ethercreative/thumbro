@@ -1,0 +1,11 @@
+{
+  "dependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.8.6",
+    "@babel/preset-env": "^7.8.6",
+    "babel-preset-minify": "^0.5.1"
+  },
+  "scripts": {
+    "build": "babel resources/dynamic.js --out-file src/assets/dynamic.js --presets=@babel/preset-env,minify --minified --no-comments --compact=true && sed -i '' -e 's/\\\"use strict\\\";//g' src/assets/dynamic.js"
+  }
+}

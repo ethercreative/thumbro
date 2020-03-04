@@ -1,3 +1,7 @@
+## 1.0.4 - 2020-03-04
+### Added
+- Add method of re-initializing dynamic image JS
+
 ## 1.0.3 - 2020-03-02
 ### Added
 - Add support for passing URLs to transform methods

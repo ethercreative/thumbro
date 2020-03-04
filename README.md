@@ -117,6 +117,15 @@ Will disable the automatic injection of the lazy loading JavaScript.
 Will convert the lazy loading to eager loading when true, meaning the image will
 instantly load in most cases.
 
+
+#### JS
+
+You can re-initialize the thumbro dynamic picture function by calling:
+
+```javascript
+window.thumbro();
+```
+
 #### CSS
 
 You will need to include some CSS to ensure the picture tag appears correctly.

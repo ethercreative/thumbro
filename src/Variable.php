@@ -134,7 +134,7 @@ HTML;
 			if (!$noJS)
 			{
 				Craft::$app->getView()->registerJs(
-					'!function(){for(var t=function(t){var e=t.lastElementChild;e.setAttribute("src",e.dataset.src),e.setAttribute("srcset",e.dataset.srcset),e.removeAttribute("data-src"),e.removeAttribute("data-srcset")},e=document.querySelectorAll("picture"),r=new IntersectionObserver(function(e,r){var n=!0,i=!1,o=void 0;try{for(var s,c=e[Symbol.iterator]();!(n=(s=c.next()).done);n=!0){var u=s.value;if(!(u.intersectionRatio<=0)){var a=u.target;r.unobserve(a),t(a)}}}catch(t){i=!0,o=t}finally{try{n||null==c.return||c.return()}finally{if(i)throw o}}},{rootMargin:"20px 0px",threshold:.01}),n=function(n,i){var o=e[n],s=document.createElement("div"),c=o.querySelector("noscript");if(!c)return"continue";s.innerHTML=c.textContent;var u=s.firstElementChild;u.style.opacity=0,u.setAttribute("data-src",u.getAttribute("src")),u.setAttribute("data-srcset",u.getAttribute("srcset")),u.removeAttribute("src"),u.removeAttribute("srcset"),u.addEventListener("load",function(){u.removeAttribute("style")}),o.appendChild(u),!function(t){return t.getBoundingClientRect().top<=(window.innerHeight||document.documentElement.clientHeight)}(o)?r.observe(o):setTimeout(function(){return t(o)},150)},i=0,o=e.length;i<o;i++)n(i)}();',
+					file_get_contents(__DIR__ . '/assets/dynamic.js'),
 					View::POS_END
 				);
 			}
