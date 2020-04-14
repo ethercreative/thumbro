@@ -10,7 +10,11 @@ namespace ether\thumbro;
 
 use craft\base\Model;
 use craft\base\Plugin;
+use craft\events\RegisterGqlDirectivesEvent;
+use craft\events\RegisterGqlTypesEvent;
+use craft\services\Gql;
 use craft\web\twig\variables\CraftVariable;
+use ether\thumbro\gql\ThumbroTypes;
 use yii\base\Event;
 use yii\base\InvalidConfigException;
 
@@ -36,6 +40,18 @@ class Thumbro extends Plugin
 			CraftVariable::class,
 			CraftVariable::EVENT_INIT,
 			[$this, 'onRegisterVariable']
+		);
+
+		Event::on(
+			Gql::class,
+			Gql::EVENT_REGISTER_GQL_TYPES,
+			[$this, 'onRegisterGqlTypes']
+		);
+
+		Event::on(
+			Gql::class,
+			Gql::EVENT_REGISTER_GQL_DIRECTIVES,
+			[$this, 'onRegisterGqlDirectives']
 		);
 	}
 
@@ -68,6 +84,16 @@ class Thumbro extends Plugin
 		/** @var CraftVariable $variable */
 		$variable = $event->sender;
 		$variable->set('thumbro', Variable::class);
+	}
+
+	public function onRegisterGqlTypes (RegisterGqlTypesEvent $event)
+	{
+		ThumbroTypes::register($event);
+	}
+
+	public function onRegisterGqlDirectives (RegisterGqlDirectivesEvent $event)
+	{
+		$event->directives[] = ThumbroDirective::class;
 	}
 
 	// Helpers
