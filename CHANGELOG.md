@@ -1,3 +1,7 @@
+## 1.0.5 - 2020-04-28
+### Fixed
+- Remote assets now store mimetype correcty
+
 ## 1.0.4 - 2020-03-04
 ### Added
 - Add method of re-initializing dynamic image JS

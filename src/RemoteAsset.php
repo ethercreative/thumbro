@@ -21,6 +21,7 @@ class RemoteAsset
 	public $width;
 	public $height;
 	public $extension;
+	public $mimeType;
 
 	public function __construct ($url)
 	{
@@ -49,6 +50,7 @@ class RemoteAsset
 			17 => 'ico',
 			18 => 'count',
 		][$size[2]];
+		$this->mimeType = $size['mime'];
 	}
 
 	public function getUrl ()
