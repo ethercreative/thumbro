@@ -105,8 +105,8 @@ setting it to `true`.
 
 #### Config Options
 
-In addition to the regular transform config options, `picture` has two unique 
-options: 
+In addition to the regular transform config options, `picture` has additional
+unique options: 
 
 **`noJs`** [bool]
 
@@ -116,6 +116,10 @@ Will disable the automatic injection of the lazy loading JavaScript.
 
 Will convert the lazy loading to eager loading when true, meaning the image will
 instantly load in most cases.
+
+**`title`** [bool]
+
+The title that will be output in the image tag.
 
 
 #### JS

@@ -22,10 +22,12 @@ class RemoteAsset
 	public $height;
 	public $extension;
 	public $mimeType;
+	public $title;
 
-	public function __construct ($url)
+	public function __construct ($url, $title = '')
 	{
 		$this->url = $url;
+		$this->title = $title;
 		$size = getimagesize($url);
 		$this->width = $size[0];
 		$this->height = $size[1];

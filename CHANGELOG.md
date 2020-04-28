@@ -1,3 +1,7 @@
+## 1.0.6 - 2020-04-28
+### Added
+- Add `title` option to picture helper
+
 ## 1.0.5 - 2020-04-28
 ### Fixed
 - Remote assets now store mimetype correcty

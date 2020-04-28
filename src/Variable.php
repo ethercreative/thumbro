@@ -73,6 +73,8 @@ class Variable
 		if (is_string($asset))
 			$asset = new RemoteAsset($asset);
 
+		$asset->title = @$config['title'] ?? $asset->title;
+
 		if (!ArrayHelper::isAssociative($transform, true))
 			throw new Exception('The `picture` method only supports a single transform!');
 
