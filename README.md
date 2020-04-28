@@ -117,7 +117,7 @@ Will disable the automatic injection of the lazy loading JavaScript.
 Will convert the lazy loading to eager loading when true, meaning the image will
 instantly load in most cases.
 
-**`title`** [bool]
+**`title`** [string]
 
 The title that will be output in the image tag.
 
