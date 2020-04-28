@@ -8,6 +8,8 @@
 
 namespace ether\thumbro;
 
+use Craft;
+
 /**
  * Class RemoteAsset
  *
@@ -26,9 +28,17 @@ class RemoteAsset
 
 	public function __construct ($url, $title = '')
 	{
+		$cache = Craft::$app->getCache();
+		$key = 'thumbro_size_cache_' . urlencode($url);
+
 		$this->url = $url;
 		$this->title = $title;
-		$size = getimagesize($url);
+		if ($cache->exists($key)) {
+			$size = $cache->get($key);
+		} else {
+			$size = getimagesize($url);
+			$cache->set($key, $size);
+		}
 		$this->width = $size[0];
 		$this->height = $size[1];
 		$this->extension = [

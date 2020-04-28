@@ -1,3 +1,7 @@
+## 1.0.7 - 2020-04-28
+### Improved
+- Remote assets will now cache their calculated dimensions
+
 ## 1.0.6 - 2020-04-28
 ### Added
 - Add `title` option to picture helper
