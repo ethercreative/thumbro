@@ -30,7 +30,7 @@ class Variable
 	 * @param array $transforms
 	 * @param array $config
 	 *
-	 * @return ThumbroImage[]
+	 * @return ThumbroImage|ThumbroImage[]
 	 */
 	public function img ($asset, array $transforms, array $config = [])
 	{
