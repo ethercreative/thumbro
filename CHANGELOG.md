@@ -1,3 +1,7 @@
+## 1.0.8 - 2020-07-07
+### Fixed
+- Fix decimal issue when transforming images
+
 ## 1.0.7 - 2020-04-28
 ### Improved
 - Remote assets will now cache their calculated dimensions
