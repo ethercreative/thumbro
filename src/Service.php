@@ -125,6 +125,9 @@ class Service extends Component
 		$width = @$transform['width'];
 		$height = @$transform['height'];
 
+		if ($width) $width = round($width);
+		if ($height) $height = round($height);
+
 		if ($width)
 			$size[] = $width;
 		else
