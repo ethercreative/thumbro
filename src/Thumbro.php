@@ -58,7 +58,7 @@ class Thumbro extends Plugin
 	// Settings
 	// =========================================================================
 
-	protected function createSettingsModel ()
+	protected function createSettingsModel (): ?Model
 	{
 		return new Settings();
 	}
@@ -66,7 +66,7 @@ class Thumbro extends Plugin
 	/**
 	 * @return bool|Model|Settings
 	 */
-	public function getSettings ()
+	public function getSettings (): ?Model
 	{
 		return parent::getSettings();
 	}

@@ -70,7 +70,7 @@ class ThumbroDirective extends Directive
 	 */
 	public static function apply (
 		$source, $value, array $transform, ResolveInfo $resolveInfo
-	) {
+	): mixed {
 		$onAssetElement = $source === null && $value instanceof Asset;
 		$onAssetElementList = $source === null && is_array($value) && !empty($value);
 		$onApplicableAssetField = $source instanceof Asset && $resolveInfo->fieldName === 'url';

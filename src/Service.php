@@ -31,7 +31,7 @@ class Service extends Component
 	// Methods
 	// =========================================================================
 
-	public function init ()
+	public function init (): void
 	{
 		parent::init();
 
